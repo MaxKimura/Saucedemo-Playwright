@@ -3,7 +3,15 @@
 # Saucedemo Playwright E2E Tests
 
 ## 🎯 Objetivo:
-O objetivo da realização dos testes e2e é verificar a funcionalidade de uma plataforma que simula um e-commerce ([Saucedemo](https://www.saucedemo.com)). Nesta suíte de testes, é possível validar: login, produtos, filtros, detalhamento de produtos, adicionar itens ao carrinho, conferir e validar registros do cliente e realizar checkout.
+O objetivo da realização dos testes e2e é verificar a funcionalidade de uma plataforma que simula um e-commerce ([Saucedemo](https://www.saucedemo.com)). 
+Nesta suíte de testes, é possível validar:
+- Login
+- Produtos
+- Filtros
+- Detalhamento de produtos
+- Adicionar itens ao carrinho
+- Conferir e validar registros do cliente
+- Realizar checkout
 
 ## 📋 Sobre o projeto:
 ### 🛠️ Tecnologias utilizadas:
