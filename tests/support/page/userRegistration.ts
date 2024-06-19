@@ -17,6 +17,6 @@ export class UserRegistration {
 
     async userRegistrationValidation(message:string) {
         const validation = await this.page.locator('h3')
-        expect(validation).toHaveText(message) 
+        await expect(validation).toHaveText(message) 
     }
 }
