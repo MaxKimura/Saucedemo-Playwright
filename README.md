@@ -16,7 +16,9 @@ Nesta suíte de testes, é possível validar:
 ## 📋 Sobre o projeto:
 ### 🛠️ Tecnologias utilizadas:
 - Playwright
+- PageObect
 - faker-js
+- Allure Report
 
 ## 🚀 Como executar o projeto:
 
@@ -44,4 +46,21 @@ npx playwright test
 ```sh
 npx playwright test --headed
 ```
+
+### 6. Allure Report:
+Allure é uma poderosa ferramenta de relatório que oferece uma visualização clara dos resultados dos testes. Com ele, é possível gerar relatórios detalhados e de fácil interpretação.
+
+Para gerar e visualizar o relatório Allure:
+
+Gere o relatório:
+```sh
+npm run allure:report
+```
+
+Abra o relatório:
+```sh
+npm run allure:open
+```
+
+![alt text](image.png)
 
