@@ -1,14 +1,17 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
   workflow_dispatch:
+
 jobs:
   e2e-testes:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
     steps:
     - name: Get code
       uses: actions/checkout@v4
@@ -25,16 +28,14 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run E2E tests
-      run: npx playwright test
+      run: npx playwright test --reporter=list,json
 
     - name: Install Allure
-      run: |
-        npm install -g allure-commandline --save-dev
+      run: npm install -g allure-commandline --save-dev
 
     - name: Generate Allure Report
-      run: |
-        allure generate ./allure-results --clean -o ./allure-report
-      
+      run: allure generate ./playwright-report --clean -o ./allure-report
+
     - name: Publish Allure Report
       uses: actions/upload-artifact@v4
       if: always()
@@ -42,11 +43,11 @@ jobs:
         name: allure-report
         path: ./allure-report/
         retention-days: 30
-      
+
     - name: Publish HTML report
       uses: actions/upload-artifact@v4
       if: always()
       with:
         name: playwright-report
-        path: playwright-report/
+        path: ./playwright-report/
         retention-days: 30
