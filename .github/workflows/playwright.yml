@@ -30,6 +30,9 @@ jobs:
     - name: Run E2E tests
       run: npx playwright test
 
+    - name: Install Allure
+      run: npm install -g allure-commandline --save-dev
+
     - name: Generate Allure Report
       run: npm run allure:report
 
