@@ -13,8 +13,9 @@ import allurePlaywright from 'allure-playwright'
 export default defineConfig({
   testDir: './tests',
   reporter: [
-    ['list'],
-    ['allure-playwright']
+    [
+      "allure-playwright"
+    ],
   ],
   /* Run tests in files in parallel */
   fullyParallel: true,
