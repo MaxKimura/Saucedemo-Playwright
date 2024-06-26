@@ -27,23 +27,22 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
+
     - name: Run Playwright tests
       run: npx playwright test --reporter=line,allure-playwright
 
     - name: Get Allure history
-      uses: actions/checkout@v3
       if: always()
-      continue-on-error: true
-      with:
-        ref: allure
-        path: allure
+      run: |
+        git fetch origin allure:refs/remotes/origin/allure || echo "No allure branch"
+        git checkout allure || git checkout --orphan allure
+        mkdir -p allure-history || echo "Allure history directory already exists"
+        cp -r allure-history allure-results || echo "No previous allure results to copy"
 
     - name: Generate Allure Report
-      uses: simple-elf/allure-report-action@master
       if: always()
-      with:
-        allure_results: allure-results
-        gh_pages: allure
+      run: |
+        npx allure generate allure-results --clean -o allure-history
 
     - name: Deploy report to GitHub Pages
       if: always()
@@ -51,4 +50,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: allure
-        publish_dir: allure
+        publish_dir: allure-history
